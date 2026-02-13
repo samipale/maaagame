@@ -1,0 +1,100 @@
+{
+    "General_CloseAll": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "close.png",
+                    "ok.png"
+                ]
+            }
+        }
+    },
+    "General_Homepage": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param":{
+                "template": "homepage.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "General_SelectSummon": {
+        "next": [
+            "General_BattleReady",
+            "General_BotCheck",
+            "[JumpBack]General_Ok",
+            "[JumpBack]ManualChooseSummon"
+        ]
+    },
+    "General_BattleReady": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param":{
+                "template": "battle_ready.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    98,
+                    756,
+                    518,
+                    248
+                ]
+            }
+        }
+    },
+    "General_BotCheck": {
+        "recognition": {
+            "type": "OCR",
+            "param":{
+                "expect": [
+                    "画像認証",
+                    "自動ツール",
+                    "認証文字"
+                ]
+            }
+        },
+        "action": {
+            "type": "StopTask"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "触发验证码认证",
+            "toast": ["触发验证码认证", "请手动输入验证码，并考虑是否继续"]
+        }
+    },
+    "General_Ok": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param":{
+                "template": "ok.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "pre_delay": 500
+    },
+    "ManualChooseSummon": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param":{
+                "template": "auto_summon.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "target": [
+                203,
+                496,
+                449,
+                114
+            ]
+        },
+        "pre_delay": 500
+    }
+}

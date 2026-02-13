@@ -1,0 +1,81 @@
+{
+    "Daily_Start": {
+        "next": [
+            "Daily_Homepage"
+        ]
+    },
+    "Daily_Homepage": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param":{
+                "template": "homepage.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]General_CloseAll",
+            "Daily_Menu"
+        ]
+    },
+    "Daily_Menu": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param":{
+                "template": "menu.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "Daily_MultiBattle"
+        ]
+    },
+    "Daily_MultiBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param":{
+                "template": "multi_battle.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "Daily_MultiBattleList"
+        ]
+    },
+    "Daily_MultiBattleList": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param":{
+                "template": "multi_battle_list.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "Daily_DailyBattle"
+        ]
+    },
+    "Daily_DailyBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param":{
+                "template": "multi_battle_list.png"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param":{
+                "custom_action": "DailyBattleAuto"
+            }
+        },
+        "next": [
+            "General_Homepage"
+        ]
+    }
+}
